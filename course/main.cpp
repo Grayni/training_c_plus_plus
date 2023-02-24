@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 
 void main()
@@ -39,5 +39,5 @@ void main()
 		Last\n\
 		Cold\n\
 		Night\n" << endl;  // endl == \n
-	cout << "Ïðèâåò\tìèð!\n\n";
+	cout << "ÐŸÑ€Ð¸Ð²ÐµÑ‚\tÐ¼Ð¸Ñ€!\n\n";
 }
