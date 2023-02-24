@@ -2,7 +2,8 @@
 using namespace std;
 
 void main()
-{
+{	
+	system("chcp 1251");
 	setlocale(LC_ALL, "Rus");
 	std::cout << "\
 		A fire's design calms me down\n\
