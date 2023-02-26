@@ -17,12 +17,14 @@ void main() {
 	cout << a % c << endl;
 
 	// home
-	int l = 4;
-	int m = 2;
-	int n = 5;
+	int l;
+	int m;
+	int n;
+	cout << "Enter 3 numbers: " << endl;
+	cin >> l >> m >> n;
 
-	cout << l + m + n << endl;
-	cout << l * m * n << endl;
-	cout << (double)(l + m + n) / 3 << endl;
+	cout << "Sum: " << l + m + n << endl;
+	cout << "Product: " << l * m * n << endl;
+	cout << "Mean: " << (double)(l + m + n) / 3 << endl;
 
 }
