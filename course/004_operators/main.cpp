@@ -26,5 +26,4 @@ void main() {
     cout << "Sum: " << l + m + n << endl;
     cout << "Product: " << l * m * n << endl;
     cout << "Mean: " << (double)(l + m + n) / 3 << endl;
-
 }
