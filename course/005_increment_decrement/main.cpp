@@ -28,6 +28,4 @@ void main() {
     cout << "Prefix add value now ++b: " << ++b << endl;
     cout << "Postfix add value after implementation b++: " << b++ << endl;
     cout << "Show b again. Now b change +1: " << b;
-
-
 }
