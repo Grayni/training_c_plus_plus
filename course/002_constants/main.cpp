@@ -10,5 +10,4 @@ void main() {
 
     cout << COUNT_WEEKDAYS << NEW_LINE;
     cout << COUNT_WEEKDAYS << TAB << TAB << COUNT_WEEKDAYS;
-
 }
