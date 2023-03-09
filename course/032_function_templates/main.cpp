@@ -11,6 +11,8 @@ void show(T a) {
     cout << a << "\n";
 }
 
+// typename == class
+
 void main() {
     // int sum
     cout << sum(2, 5) << "\n";
