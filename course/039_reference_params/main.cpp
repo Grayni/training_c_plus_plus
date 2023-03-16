@@ -13,8 +13,9 @@ void foo3(int *a) {
     *a = 3;
 }
 
-void change_vars(int &a, int &b) {
-    int c = a;
+template <typename any>
+void change_vars(any &a, any &b) {
+    any c = a;
     a = b;
     b = c;
 }
@@ -40,6 +41,13 @@ void main() {
 
     change_vars(a, b);
     cout << "a: " << a << endl;
-    cout << "b: " << b << endl;
+    cout << "b: " << b << "\n\n";
 
+    string var1 = "hello";
+    string var2 = "goodbye";
+
+    change_vars(var1, var2);
+
+    cout << "var1: " << var1 << endl;
+    cout << "var2: " << var2 << endl;
 }
