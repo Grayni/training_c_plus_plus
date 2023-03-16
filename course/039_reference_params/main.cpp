@@ -13,6 +13,12 @@ void foo3(int *a) {
     *a = 3;
 }
 
+void change_vars(int &a, int &b) {
+    int c = a;
+    a = b;
+    b = c;
+}
+
 void main() {
     int value = 5;
     cout << value << endl;
@@ -28,5 +34,12 @@ void main() {
     cout << "foo3: ";
     foo3(&value);
     cout << value << "\n\n";
+
+    int a = 22;
+    int b = 10;
+
+    change_vars(a, b);
+    cout << "a: " << a << endl;
+    cout << "b: " << b << endl;
 
 }
