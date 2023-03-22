@@ -3,6 +3,7 @@
 #define tab "\t"
 #define Begin {
 #define End }
+#define FOO(x, y)((x)*(y))
 
 using namespace std;
 
@@ -16,5 +17,8 @@ void main() {
         cout << "cycle: " << i << endl;
     End
 
-        system("pause");
+        ;
+
+    cout << FOO(5, 2) << endl;
+    system("pause");
 }
