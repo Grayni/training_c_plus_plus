@@ -10,6 +10,8 @@ public:
     ~List();
 
     void push_back(T data);
+    void pop_front();
+    void clear();
 
     int getSize() {
         return size;
@@ -43,6 +45,7 @@ List<T>::List() {
 
 template<typename T>
 List<T>::~List() {
+    clear();
 }
 
 template<typename T>
@@ -65,6 +68,24 @@ void List<T>::push_back(T data) {
 }
 
 template<typename T>
+void List<T>::pop_front() {
+    // save head in another variable
+    Node<T> *temp = head;
+    head = head->pNext;
+
+    delete temp;
+
+    size--;
+}
+
+template<typename T>
+void List<T>::clear() {
+    while (size) {
+        pop_front();
+    }
+}
+
+template<typename T>
 T & List<T>::operator[](const int index) {
     int counter = 0;
     Node<T> *current = this->head;
@@ -80,7 +101,6 @@ T & List<T>::operator[](const int index) {
     }
 }
 
-
 int main() {
     List<int> lst;
 
@@ -92,6 +112,26 @@ int main() {
 
     cout << size << endl;
     cout << lst[2] << endl;
+    cout << "" << endl;
+
+    for (int i = 0; i < lst.getSize(); i++) {
+        cout << lst[i] << endl;
+    }
+
+    cout << "\n\n";
+
+    cout << "Number of elements in list: " << lst.getSize() << "\n\n";
+    cout << "Start deleting an element" << endl;
+
+    lst.pop_front();
+
+    cout << "Complete deleting of elements" << "\n\n";
+    cout << "Number of elements in list: " << lst.getSize() << "\n\n";
+
+    cout << "Start deleting all elements" << endl;
+    lst.clear();
+    cout << "Number of elements in list: " << lst.getSize() << "\n\n";
+
 
     return 0;
 }
