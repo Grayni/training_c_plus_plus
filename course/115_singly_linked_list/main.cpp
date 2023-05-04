@@ -17,7 +17,13 @@ public:
         return size;
     }
 
+    void push_front(T data);
+    void insert(T data, T index);
+    void removeAt(int index);
+    void pop_back();
+
     T& operator[](const int index);
+
 
 private:
     template<typename T>
@@ -86,6 +92,57 @@ void List<T>::clear() {
 }
 
 template<typename T>
+void List<T>::push_front(T data) {
+    head = new Node<T>(data, head);
+    size++;
+}
+
+template<typename T>
+void List<T>::insert(T data, T index) {
+
+    if (index == 0) {
+        push_front(data);
+    }
+    else {
+        Node<T> *previous = this->head;
+
+        for (int i = 0; i < index - 1; i++) {
+            previous = previous->pNext;
+        }
+
+        previous->pNext = new Node<T>(data, previous->pNext);
+
+        size++;
+    }
+}
+
+template<typename T>
+void List<T>::removeAt(int index) {
+    if (index == 0) {
+        pop_front();
+    }
+    else {
+        Node<T> *previous = this->head;
+
+        for (int i = 0; i < index - 1; i++) {
+            previous = previous->pNext;
+        }
+
+        Node<T> *toDelete = previous->pNext;
+
+        previous->pNext = toDelete->pNext;
+
+        delete toDelete;
+        size--;
+    }
+}
+
+template<typename T>
+void List<T>::pop_back() {
+    removeAt(size - 1);
+}
+
+template<typename T>
 T & List<T>::operator[](const int index) {
     int counter = 0;
     Node<T> *current = this->head;
@@ -132,6 +189,41 @@ int main() {
     lst.clear();
     cout << "Number of elements in list: " << lst.getSize() << "\n\n";
 
+    lst.push_front(34);
+    lst.push_front(24);
+    lst.push_front(14);
+
+    cout << "Start adding element" << "\n\n";
+    for (int i = 0; i < lst.getSize(); i++) {
+        cout << lst[i] << endl;
+    }
+    cout << "Number of elements in list: " << lst.getSize() << "\n\n";
+
+    cout << "Insert element" << "\n\n";
+    lst.insert(215, 1);
+
+    for (int i = 0; i < lst.getSize(); i++) {
+        cout << lst[i] << endl;
+    }
+    cout << "Number of elements in list: " << lst.getSize() << "\n\n";
+
+    cout << "remove element" << "\n\n";
+    lst.removeAt(1);
+
+    for (int i = 0; i < lst.getSize(); i++) {
+        cout << lst[i] << endl;
+    }
+    cout << "Number of elements in list: " << lst.getSize() << "\n\n";
+
+    cout << "remove last element" << "\n\n";
+    lst.pop_back();
+
+    for (int i = 0; i < lst.getSize(); i++) {
+        cout << lst[i] << endl;
+    }
+    cout << "Number of elements in list: " << lst.getSize() << "\n\n";
+
 
     return 0;
+
 }
