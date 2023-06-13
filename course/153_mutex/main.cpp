@@ -1,24 +1,11 @@
 #include <iostream>
 #include <mutex>
 #include <thread>
+#include "SimpleTimer.h"
 
 using namespace std;
 
 mutex mtx;
-
-class SimpleTimer {
-public:
-    SimpleTimer() {
-        start = std::chrono::high_resolution_clock::now();
-    }
-    ~SimpleTimer() {
-        end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<float> duration = end - start;
-        cout << "Duration: " << duration.count() << "s" << endl;
-    }
-private:
-    std::chrono::time_point<std::chrono::steady_clock> start, end;
-};
 
 void Print(char ch) {
     this_thread::sleep_for(chrono::milliseconds(1000));
